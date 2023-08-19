@@ -1,0 +1,67 @@
+{%extends 'base.html' %}
+{%load static %}
+{%block css%}
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css"
+  integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA=="
+  crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+{%endblock css%}
+{%block title%}login page{%endblock%}
+{%block sign%}
+
+<div class="container  p-6">
+  <div class="row">
+    <div class="col-md-4"></div>
+   
+    <div class="col-md-4">
+      <br>
+      <br>
+      <br>
+      <br>
+      <br>
+      <h3 class="text-white bg-dark text-center p-3">Signin here</h3>
+      {%for mess in messages%}
+
+      <div class="alert alert-{{messages.tags}}- alert-dismissible fade show" role="alert">
+        <strong>{{mess}}</strong> You should check in on some of those fields below.
+        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+      </div>
+    {%endfor%}
+      <div class="card">
+
+        <form class="form-group" method="post" action="">{%csrf_token%}
+          <div class="mb-3">
+            <label for="exampleInputEmail1" class="form-label "><i class="fa-solid fa-envelope"></i>Email
+              address</label>
+            <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" name="email" required>
+            <div id="emailHelp" class="form-text">We'll never share your email with anyone else.</div>
+          </div>
+          <div class="mb-3">
+            <label for="exampleInputPassword1" class="form-label"><i class="fa-solid fa-key"></i>Password</label>
+            <input type="password" class="form-control" id="exampleInputPassword1" name="password">
+          </div>
+         
+          
+          <div class="d-grid gap-2">
+            <button class="btn btn-primary bg-dark" type="submit">Signin</button>
+
+          </div>
+        </form>
+      <div>New user?<a href="/auth/signup">Signup</a></div>
+      </div>
+
+
+
+
+
+    </div>
+    <div class="col-md-4"></div>
+
+
+  </div>
+
+
+
+
+</div>
+{%endblock sign%}
